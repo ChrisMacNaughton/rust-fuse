@@ -125,7 +125,7 @@ pub trait Filesystem {
     }
 
     /// Get file attributes.
-    fn getattr (&mut self, _req: &Request, _ino: u64, path: &Path, reply: ReplyAttr) {
+    fn getattr (&mut self, _req: &Request, _ino: u64, path: &str, reply: ReplyAttr) {
         reply.error(ENOSYS);
     }
 

@@ -153,7 +153,7 @@ impl<'a> Request<'a> {
             },
             FUSE_GETATTR => {
                 debug!("GETATTR({}) ino {:#018x}", self.header.unique, self.header.nodeid);
-                se.filesystem.getattr(self, self.header.nodeid, data.fetch_path(), self.reply());
+                se.filesystem.getattr(self, self.header.nodeid, data.fetch_str(), self.reply());
             },
             FUSE_SETATTR => {
                 let arg: &fuse_setattr_in = data.fetch();
